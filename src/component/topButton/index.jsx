@@ -20,7 +20,7 @@ export const BackToTop = () => {
 
 	return (
 		<BackToTopButton onClick={scrollToTop} $show={showButton}>
-			↑ Top
+			↑
 		</BackToTopButton>
 	)
 }

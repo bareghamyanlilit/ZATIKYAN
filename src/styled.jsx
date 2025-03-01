@@ -26,6 +26,7 @@ const Flexible = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	gap: 20px;
 `
 
 const Container = styled.div`
