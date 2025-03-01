@@ -1,17 +1,40 @@
-import React from "react"
-import { FooterContainer, FooterSection, FooterTitle, FooterColumn, FooterFlexible, FooterLinks } from './styled';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react"
+import { FooterContainer, FooterSection, FooterTitle, FooterColumn, FooterFlexible, FooterLinks, StyledLink } from './styled';
+import { Link, useLocation } from 'react-router-dom';
 import { FaEnvelope, FaFacebook, FaInstagram, FaPhoneSquareAlt } from 'react-icons/fa'
 import { Container, Flexible } from "../../styled";
 import Logo from "../../assets/img/logo.png";
-import { DiVisualstudio } from "react-icons/di";
 
 export const MyFooter = () => {
+	const [items, setItems] = useState([]);
+	const loc = useLocation();
+	const footerArray = [
+		{ name: 'Home', path: '/', active: loc.pathname === "/" },
+		{ name: 'Services', path: '/services', active: loc.pathname === "/services" },
+		{ name: 'About', path: '/about', active: loc.pathname === "/about" },
+		{ name: 'Contact', path: '/contact', active: loc.pathname === "/contact" },
+	];
+	useEffect(() => {
+		setItems(footerArray)
+	}, [loc])
+	const changeActive = (index) => {
+		setItems(prev => {
+			return (
+				prev.map((e, i) => {
+					if (i == index) {
+						return { ...e, active: true }
+					} else {
+						return { ...e, active: false }
+					}
+				})
+			)
+		})
+	}
 	return (
 		<FooterContainer>
 			<Container>
 				<FooterFlexible>
-						<img src={Logo} alt="Zatikyan Physical Therapy" />
+					<img src={Logo} alt="Zatikyan Physical Therapy" />
 					<FooterColumn>
 						<FooterTitle>Our Adress</FooterTitle>
 						<Link to="" >Avag Petrosyan 4, Yerevan</Link>
@@ -20,42 +43,41 @@ export const MyFooter = () => {
 						<FooterTitle>Working Hours</FooterTitle>
 						<Flexible>
 							<div>
-								<p>Monday</p>
-								<p>Tuesday</p>
-								<p>Wednesday</p>
-								<p>Thursday</p>
-								<p>Friday</p>
-								<p>Saturday</p>
-								<p>Sunday</p>
+								{["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(day => (
+									<p key={day}>{day}</p>
+								))}
 							</div>
 							<div>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
-								<p>09:00 - 20:00</p>
+								{Array(7).fill("09:00 - 20:00").map((time, i) => (
+									<p key={i}>{time}</p>
+								))}
 							</div>
 						</Flexible>
 					</FooterColumn>
 				</FooterFlexible>
+				<hr />
 				<div>
-					<FooterSection>
-						<FooterTitle>Zatikyan Physical Therapy</FooterTitle>
-						<p>Improving your health with expert care and personalized treatment</p>
-					</FooterSection>
-
-					<FooterSection>
-						<FooterTitle>Quick Links</FooterTitle>
-						<FooterLinks>
-							<Link to="/">Home</Link>
-							<Link to="/services">Services</Link>
-							<Link to="/about">About Us</Link>
-							<Link to="/contact">Contact</Link>
-						</FooterLinks>
-					</FooterSection>
-
+					<Flexible>
+						<FooterColumn>
+							<FooterTitle>Zatikyan Physical Therapy</FooterTitle>
+							<p>Improving your health with expert <br /> care and personalized treatment</p>
+						</FooterColumn>
+						<FooterColumn>
+							<FooterTitle>Quick Links</FooterTitle>
+							<FooterLinks>
+								{items.map((e, index) => (
+									<StyledLink
+										onClick={() => changeActive(index)}
+										key={index}
+										to={e.path}
+										active={e.active}
+									>
+										{e.name}
+									</StyledLink>
+								))}
+							</FooterLinks>
+						</FooterColumn>
+					</Flexible>
 					<FooterSection>
 						<FooterTitle>Follow Us</FooterTitle>
 						<FooterSection>
@@ -64,10 +86,10 @@ export const MyFooter = () => {
 						</FooterSection>
 					</FooterSection>
 					<FooterSection>
-						<FooterTitle>Contact with Us</FooterTitle>
+						<FooterTitle>Contact With Us</FooterTitle>
 						<FooterSection>
 							<Link to="tel:+37495801851"> <FaPhoneSquareAlt /> <span>+374 95 80 18 51</span></Link>
-							<Link to="mailto:marineavet2006@gmail"> <FaEnvelope /> clincicemail@gmail.com </Link>
+							<Link to="mailto:marineavet2006@gmail.com"> <FaEnvelope /> clincicemail@gmail.com </Link>
 						</FooterSection>
 					</FooterSection>
 					<p>&copy; 2025 Zatikyan Physical Therapy. All rights reserved.</p>

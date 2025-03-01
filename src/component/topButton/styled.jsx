@@ -10,7 +10,7 @@ export const BackToTopButton = styled.button`
 	border: none;
 	background: ${globalColor.black};
 	color: ${globalColor.white};
-	border-radius: 5px;
+	border-radius: 50%;
 	cursor: pointer;
 	opacity: ${({ $show }) => ($show ? '1' : '0')};
 	visibility: ${({ $show }) => ($show ? 'visible' : 'hidden')};

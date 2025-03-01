@@ -1,24 +1,32 @@
 import styled from 'styled-components';
 import { globalColor } from '../../assets/colors';
-import { Flexible } from '../../styled';
+import { NavLink } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background: ${globalColor.gray};
   color: ${globalColor.white};
   padding: 40px 20px;
   text-align: center;
+  hr {
+    margin: 20px 0;
+  }
 `;
-const FooterColumn = styled(Flexible)`
-	align-items: start;
+const FooterColumn = styled.div`
+  display: flex;
 	flex-direction: column;
-	// justify-content: space-around;
+	justify-content: start;
+	align-items: center;
 	margin-bottom: 20px;
 	div {
 		text-align: left;
 	}
 	a {
 		color: ${globalColor.white};
-        margin-bottom: 5px;
+    margin-bottom: 5px;
+    &:hover {
+      color: ${globalColor.darkGray};
+      text-decoration: underline;
+    }
 	}
 `
 
@@ -53,15 +61,18 @@ const FooterSection = styled.div`
 const FooterTitle = styled.h4`
   font-size: 20px;
   color: ${globalColor.darkGray};
+  margin-bottom: 7px;
 `;
 
 const FooterLinks = styled.div`
-    a {
-        display: block;
-        color: ${globalColor.white};
-        text-decoration: none;
-        margin-bottom: 5px;      
-    }
+
+`;
+const StyledLink = styled(NavLink)`
+  display: block;
+  color: ${({active}) => active ? globalColor.black : "red"};
+  text-decoration: none;
+  margin-bottom: 5px;  
+
 `;
 
 const FooterFlexible = styled.div`
@@ -72,4 +83,4 @@ const FooterFlexible = styled.div`
 	flex-wrap: wrap;
 `;
 
-export { FooterContainer, FooterFlexible, FooterSection, FooterColumn, FooterTitle, FooterLinks };
+export { FooterContainer, StyledLink, FooterFlexible, FooterSection, FooterColumn, FooterTitle, FooterLinks };
