@@ -69,7 +69,7 @@ const FooterLinks = styled.div`
 `;
 const StyledLink = styled(NavLink)`
   display: block;
-  color: ${({active}) => active ? globalColor.black : "red"};
+  color: ${({$active}) => $active ? globalColor.black : "red"};
   text-decoration: none;
   margin-bottom: 5px;  
 

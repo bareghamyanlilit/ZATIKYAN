@@ -28,7 +28,11 @@ const Flexible = styled.div`
 	flex-wrap: wrap;
 	gap: 20px;
 `
-
+const Column = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+`
 const Container = styled.div`
 	max-width: 1200px;
 	margin: auto;
@@ -58,7 +62,8 @@ const Container = styled.div`
 	}
 
 	@media (max-width: 400px) {
-		max-width: 300px;
+		max-width: 100%;
+		padding: 0 20px;
 	}
 `
 
@@ -109,4 +114,4 @@ const Checkbox = styled.input`
 	}
 `
 
-export { Flexible, Checkbox, Button, Container, GlobalStyles }
+export { Flexible, Checkbox, Button, Container, GlobalStyles, Column }

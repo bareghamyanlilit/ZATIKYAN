@@ -70,7 +70,7 @@ export const MyFooter = () => {
 										onClick={() => changeActive(index)}
 										key={index}
 										to={e.path}
-										active={e.active}
+										$active={e.active}
 									>
 										{e.name}
 									</StyledLink>
