@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { globalColor } from '../../assets/colors';
-import { NavLink } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background: ${globalColor.gray};
@@ -67,22 +66,13 @@ const FooterTitle = styled.h4`
 const FooterLinks = styled.div`
 
 `;
-<<<<<<< HEAD
-const StyledLink = styled(NavLink)`
-  display: block;
-  color: ${({$active}) => $active ? globalColor.black : "red"};
-  text-decoration: none;
-  margin-bottom: 5px;  
-
-=======
 const StyledLink = styled.li`
   a {
     display: block;
-    color: ${({active}) => active ? globalColor.black : globalColor.darkGray};
+    color: ${({$active}) => $active ? globalColor.black : globalColor.darkGray};
     font-weight:  ${({active}) => active ? "bold" : null };
     margin-bottom: 5px;  
   }
->>>>>>> fcf2cc2f1182ad0ec954ad5576c6e8bc99194cd6
 `;
 
 const FooterFlexible = styled.div`

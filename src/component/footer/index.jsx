@@ -71,12 +71,8 @@ export const MyFooter = () => {
 									<StyledLink
 										onClick={() => changeActive(index)}
 										key={index}
-<<<<<<< HEAD
 										to={e.path}
 										$active={e.active}
-=======
-										active={e.active}
->>>>>>> fcf2cc2f1182ad0ec954ad5576c6e8bc99194cd6
 									>
 										<Link to={e.path} >{e.name}</Link>
 									</StyledLink>
