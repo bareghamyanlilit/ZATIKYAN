@@ -1,6 +1,6 @@
 import { HeaderDiv } from './styled'
-export const MyHeader=()=>{
-	return(
+export const MyHeader = () => {
+	return (
 		<HeaderDiv></HeaderDiv>
 	)
 }
