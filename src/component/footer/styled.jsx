@@ -67,12 +67,13 @@ const FooterTitle = styled.h4`
 const FooterLinks = styled.div`
 
 `;
-const StyledLink = styled(NavLink)`
-  display: block;
-  color: ${({active}) => active ? globalColor.black : "red"};
-  text-decoration: none;
-  margin-bottom: 5px;  
-
+const StyledLink = styled.li`
+  a {
+    display: block;
+    color: ${({active}) => active ? globalColor.black : globalColor.darkGray};
+    font-weight:  ${({active}) => active ? "bold" : null };
+    margin-bottom: 5px;  
+  }
 `;
 
 const FooterFlexible = styled.div`

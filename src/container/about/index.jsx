@@ -1,6 +1,6 @@
 import React from 'react';
-import { AboutContainer, AboutSection, AboutTitle, AboutText, AboutImage, AboutCard } from './styled';
-import { Container, Flexible } from '../../styled'
+import { AboutContainer, AboutSection, AboutTitle, AboutText, AboutImage } from './styled';
+import { Container, Flexible, UserCard } from '../../styled'
 import { teamMembers } from '../../constant/teamMembersArray';
 export const AboutPage = () => {
 	return (
@@ -28,11 +28,13 @@ export const AboutPage = () => {
 					<AboutTitle>Our Team</AboutTitle>
 					<Flexible>
 						{teamMembers.map((member, index) => (
-							<AboutCard key={index}>
+							index <= 3 ? 
+							<UserCard key={index}>
 								<AboutImage src={member.imageUrl} alt={member.name} />
 								<h3>{member.name}</h3>
 								<span>({member.profession})</span>
-							</AboutCard>
+							</UserCard>
+							: ""
 						))}
 					</Flexible>
 				</AboutSection>

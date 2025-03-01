@@ -10,9 +10,11 @@ export const MyFooter = () => {
 	const loc = useLocation();
 	const footerArray = [
 		{ name: 'Home', path: '/', active: loc.pathname === "/" },
+		{ name: 'Our Team', path: '/ourTeam', active: loc.pathname === "/our-team" },
 		{ name: 'Services', path: '/services', active: loc.pathname === "/services" },
 		{ name: 'About', path: '/about', active: loc.pathname === "/about" },
 		{ name: 'Contact', path: '/contact', active: loc.pathname === "/contact" },
+		{ name: 'FAQ', path: '/faq', active: loc.pathname === "/faq" },
 	];
 	useEffect(() => {
 		setItems(footerArray)
@@ -69,10 +71,9 @@ export const MyFooter = () => {
 									<StyledLink
 										onClick={() => changeActive(index)}
 										key={index}
-										to={e.path}
 										active={e.active}
 									>
-										{e.name}
+										<Link to={e.path} >{e.name}</Link>
 									</StyledLink>
 								))}
 							</FooterLinks>
