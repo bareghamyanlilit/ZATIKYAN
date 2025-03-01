@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
 		list-style-type: none;
 	}
 `
-
 const Flexible = styled.div`
 	display: flex;
 	justify-content: center;
@@ -28,6 +27,23 @@ const Flexible = styled.div`
 	flex-wrap: wrap;
 	gap: 20px;
 `
+const UserCard = styled.div`
+  max-width: 200px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 17px;
+  text-align: center;
+  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  cursor: pointer;
+  gap: 10px;
+  &:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+`;
 
 const Container = styled.div`
 	max-width: 1200px;
@@ -103,10 +119,9 @@ const Checkbox = styled.input`
 		top: 3px;
 		left: 6px;
 	}
-
 	&:focus {
 		outline: none;
 	}
 `
 
-export { Flexible, Checkbox, Button, Container, GlobalStyles }
+export { Flexible, Checkbox, Button, Container, GlobalStyles, UserCard }
