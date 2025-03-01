@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { globalColor } from '../../assets/colors';
-import { NavLink } from 'react-router-dom';
 
 const FooterContainer = styled.footer`
   background: ${globalColor.gray};
@@ -70,7 +69,7 @@ const FooterLinks = styled.div`
 const StyledLink = styled.li`
   a {
     display: block;
-    color: ${({active}) => active ? globalColor.black : globalColor.darkGray};
+    color: ${({$active}) => $active ? globalColor.black : globalColor.darkGray};
     font-weight:  ${({active}) => active ? "bold" : null };
     margin-bottom: 5px;  
   }

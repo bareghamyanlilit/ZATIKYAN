@@ -27,6 +27,11 @@ const Flexible = styled.div`
 	flex-wrap: wrap;
 	gap: 20px;
 `
+const Column = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+`
 const UserCard = styled.div`
   max-width: 200px;
   position: relative;
@@ -74,7 +79,8 @@ const Container = styled.div`
 	}
 
 	@media (max-width: 400px) {
-		max-width: 300px;
+		max-width: 100%;
+		padding: 0 20px;
 	}
 `
 
@@ -124,4 +130,4 @@ const Checkbox = styled.input`
 	}
 `
 
-export { Flexible, Checkbox, Button, Container, GlobalStyles, UserCard }
+export { Flexible, Checkbox, Button, Container, GlobalStyles, Column,UserCard }

@@ -3,4 +3,5 @@ export const globalColor = {
 	black: '#060606',
 	gray: '#666666',
 	darkGray: '#333333',
+	titleColor:'#5b5775',
 }

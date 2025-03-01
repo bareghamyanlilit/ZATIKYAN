@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { globalColor } from '../../assets/colors';
 
 const AboutContainer = styled.div`
-  padding: 50px 0px;
+  padding: 130px 0px 50px;
   background: ${globalColor.white};
   color: ${globalColor.darkGray};
   text-align: center;
@@ -13,17 +13,17 @@ const AboutSection = styled.div`
 `;
 
 const AboutTitle = styled.h2`
-  font-size: 28px;
-  color: ${globalColor.darkGray};
-  margin-bottom: 20px;
-`;
+	font-size: calc(18px + 1vw);
+	color: ${globalColor.darkGray};
+	margin-bottom: 20px;
+`
 
 const AboutText = styled.p`
-  font-size: 18px;
-  line-height: 1.5;
-  color: ${globalColor.gray};
-  text-align: justify;
-`;
+	font-size: calc(14px + 1vw);
+	line-height: 1.5;
+	color: ${globalColor.gray};
+	text-align: justify;
+`
 
 const AboutImage = styled.img`
   width: 100%;
