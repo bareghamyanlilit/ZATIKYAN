@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
 		list-style-type: none;
 	}
 `
-
 const Flexible = styled.div`
 	display: flex;
 	justify-content: center;
@@ -28,11 +27,7 @@ const Flexible = styled.div`
 	flex-wrap: wrap;
 	gap: 20px;
 `
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 50px;
-`
+
 const Container = styled.div`
 	max-width: 1200px;
 	margin: auto;
@@ -108,10 +103,9 @@ const Checkbox = styled.input`
 		top: 3px;
 		left: 6px;
 	}
-
 	&:focus {
 		outline: none;
 	}
 `
 
-export { Flexible, Checkbox, Button, Container, GlobalStyles, Column }
+export { Flexible, Checkbox, Button, Container, GlobalStyles }
