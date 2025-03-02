@@ -7,10 +7,10 @@ import { IoMenuSharp } from 'react-icons/io5'
 import { MenuLang } from '../menuLang'
 import { HeaderResponsive } from '../header-responsive'
 
-export const MyHeader=({})=>{
-	const {t} = useTranslation()
-	const loc =useLocation();
-	const [openMenu,setOpenMenu]=useState(false)
+export const MyHeader = ({ }) => {
+	const { t } = useTranslation()
+	const loc = useLocation();
+	const [openMenu, setOpenMenu] = useState(false)
 	const arr = [
 		{ name: 'Home', path: '/', active: loc.pathname === '/' ? true : false },
 		{ name: 'About', path: '/about', active: loc.pathname === '/about' ? true : false  },
@@ -29,7 +29,7 @@ export const MyHeader=({})=>{
 			<Header>
 				<LeftHeader>
 					<HeaderLogo src={logo} />
-					<ShopName to={'/'}>ZATIKYAN</ShopName>
+					<ShopName to={'/'}>{t("ZATIKYAN")}</ShopName>
 				</LeftHeader>
 
 				<RightHeader>

@@ -58,9 +58,9 @@ export const MenuLang = () => {
 		<MenuContainer>
 			<MenuButton onClick={toggleMenu}><Flag src={selectedLanguageSrc}></Flag></MenuButton>
 			<MenuItems open={isOpen}>
-				
+
 				{
-					languages.map((e,i)=>{
+					languages.map((e, i) => {
 						return (
 							<MenuItem
 								key={e + i}
