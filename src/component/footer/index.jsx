@@ -4,10 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { FaEnvelope, FaFacebook, FaInstagram, FaPhoneSquareAlt } from 'react-icons/fa'
 import { Container, Flexible } from "../../styled";
 import Logo from "../../assets/img/logo.png";
+import { useTranslation } from 'react-i18next'; // import the hook
 
 export const MyFooter = () => {
+	const { t } = useTranslation(); // useTranslation hook
 	const [items, setItems] = useState([]);
 	const loc = useLocation();
+
 	const footerArray = [
 		{ name: 'Home', path: '/', active: loc.pathname === "/" },
 		{ name: 'Our Team', path: '/ourTeam', active: loc.pathname === "/our-team" },
@@ -16,14 +19,16 @@ export const MyFooter = () => {
 		{ name: 'Contact', path: '/contact', active: loc.pathname === "/contact" },
 		{ name: 'FAQ', path: '/faq', active: loc.pathname === "/faq" },
 	];
+
 	useEffect(() => {
 		setItems(footerArray)
 	}, [loc])
+
 	const changeActive = (index) => {
 		setItems(prev => {
 			return (
 				prev.map((e, i) => {
-					if (i == index) {
+					if (i === index) {
 						return { ...e, active: true }
 					} else {
 						return { ...e, active: false }
@@ -32,25 +37,32 @@ export const MyFooter = () => {
 			)
 		})
 	}
+
 	return (
 		<FooterContainer>
 			<Container>
 				<FooterFlexible>
 					<img src={Logo} alt="Zatikyan Physical Therapy" />
 					<FooterColumn>
-						<FooterTitle>Our Adress</FooterTitle>
-						<Link to="" >Avag Petrosyan 4, Yerevan</Link>
+						<FooterTitle>{t('Our Address')}</FooterTitle> {/* Translate "Our Address" */}
+						<Link to="">{t('Avag Petrosyan 4, Yerevan')}</Link>
 					</FooterColumn>
 					<FooterColumn>
-						<FooterTitle>Working Hours</FooterTitle>
+						<FooterTitle>{t('Working Hours')}</FooterTitle> {/* Translate "Working Hours" */}
 						<Flexible>
 							<div>
-								{["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].map(day => (
-									<p key={day}>{day}</p>
+								{[t("Monday"),
+								t("Tuesday"),
+								t("Wednesday"),
+								t("Thursday"),
+								t("Friday"),
+								t("Saturday"),
+								t("Sunday")].map(day => (
+									<p key={day}>{t(day)}</p> // Translate day names
 								))}
 							</div>
 							<div>
-								{Array(7).fill("09:00 - 20:00").map((time, i) => (
+								{Array(7).fill(t("09:00 - 20:00")).map((time, i) => (
 									<p key={i}>{time}</p>
 								))}
 							</div>
@@ -61,11 +73,11 @@ export const MyFooter = () => {
 				<div>
 					<Flexible>
 						<FooterColumn>
-							<FooterTitle>Zatikyan Physical Therapy</FooterTitle>
-							<p>Improving your health with expert <br /> care and personalized treatment</p>
+							<FooterTitle>{t('Zatikyan Physical Therapy')}</FooterTitle> {/* Translate company name */}
+							<p>{t('Improving your health with expert care and personalized treatment')}</p> {/* Translate description */}
 						</FooterColumn>
 						<FooterColumn>
-							<FooterTitle>Quick Links</FooterTitle>
+							<FooterTitle>{t('Quick Links')}</FooterTitle> {/* Translate "Quick Links" */}
 							<FooterLinks>
 								{items.map((e, index) => (
 									<StyledLink
@@ -74,27 +86,27 @@ export const MyFooter = () => {
 										to={e.path}
 										$active={e.active}
 									>
-										<Link to={e.path} >{e.name}</Link>
+										<Link to={e.path}>{t(e.name)}</Link> {/* Translate menu items */}
 									</StyledLink>
 								))}
 							</FooterLinks>
 						</FooterColumn>
 					</Flexible>
 					<FooterSection>
-						<FooterTitle>Follow Us</FooterTitle>
+						<FooterTitle>{t('Follow Us')}</FooterTitle> {/* Translate "Follow Us" */}
 						<FooterSection>
-							<Link to=""> <FaFacebook /> <p>Lorem ipsum dolor</p> </Link>
-							<Link to="https://www.instagram.com/zatikyan_physical_therapy/"> <FaInstagram /> <p>zatikyan_physical_therapy</p> </Link>
+							<Link to=""><FaFacebook /> <p>{t('Lorem ipsum dolor')}</p></Link>
+							<Link to="https://www.instagram.com/zatikyan_physical_therapy/"><FaInstagram /> <p>zatikyan_physical_therapy</p></Link>
 						</FooterSection>
 					</FooterSection>
 					<FooterSection>
-						<FooterTitle>Contact With Us</FooterTitle>
+						<FooterTitle>{t('Contact With Us')}</FooterTitle> {/* Translate "Contact With Us" */}
 						<FooterSection>
-							<Link to="tel:+37495801851"> <FaPhoneSquareAlt /> <span>+374 95 80 18 51</span></Link>
-							<Link to="mailto:marineavet2006@gmail.com"> <FaEnvelope /> clincicemail@gmail.com </Link>
+							<Link to="tel:+37495801851"><FaPhoneSquareAlt /> <span>+374 95 80 18 51</span></Link>
+							<Link to="mailto:marineavet2006@gmail.com"><FaEnvelope /> clincicemail@gmail.com </Link>
 						</FooterSection>
 					</FooterSection>
-					<p>&copy; 2025 Zatikyan Physical Therapy. All rights reserved.</p>
+					<p>&copy; 2025 Zatikyan Physical Therapy. {t('All rights reserved.')}</p> {/* Translate copyright text */}
 				</div>
 			</Container>
 		</FooterContainer>
