@@ -4,9 +4,10 @@ import { globalColor } from '../../assets/colors/index';
 export const FAQContainer = styled.div`
   background: url("https://as1.ftcdn.net/jpg/01/83/59/14/1000_F_183591483_Ej0eDBlcuirwxxzGAmHEhpldzxvptrjx.jpg") no-repeat center center;
   background-size: cover;
-  padding-top: 155px;
+  padding: 110px 20px;
   width: 100%;
   height: 100vh;
+  margin: 62px 0;
 `;
 
 export const FAQTitle = styled.h2`
@@ -25,7 +26,7 @@ export const FAQWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 80px;
+  margin-top: 48px;
 `;
 
 export const QuestionWrapper = styled.div`
@@ -34,9 +35,6 @@ export const QuestionWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 768px) {
-    align-items: flex-start;
-  }
 `;
 
 export const QuestionButton = styled.button`
@@ -45,7 +43,7 @@ export const QuestionButton = styled.button`
   width: 500px;
   background-color: rgba(255, 255, 255, 0.7); 
   padding: 15px;
-  text-align: justify;
+  text-align: left;
   font-size: 17px;
   font-weight: bold;
   border-radius: 50px;
@@ -78,7 +76,7 @@ export const AnswerWrapper = styled.div`
     width: 70%;
     justify-content: start;
     }
-    `;
+`;
     
     export const AnswerText = styled.div`
     position: absolute;
@@ -88,18 +86,17 @@ export const AnswerWrapper = styled.div`
     border-radius: 25px;
     font-size: 16px;
     color: ${globalColor.black};
-    background-color: rgba(255, 255, 255, 0.7); 
+    background: rgba(255, 255, 255, 0.7); 
     transform: translatveY(-20px);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
-    box-shadow: 5px 2px 9px rgba(0, 0, 0, 0.6);
-
-  ${({ active }) => active && `
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  `}
+    
+    ${({ active }) => active && `
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    `}
 
 `;
 
