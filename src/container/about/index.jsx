@@ -1,11 +1,18 @@
 import React from 'react';
-import { AboutContainer, AboutSection, AboutTitle, AboutText, AboutImage } from './styled';
-import { Container, Flexible, UserCard } from '../../styled';
+import {
+	AboutContainer,
+	AboutSection,
+	AboutTitle,
+	AboutText,
+	AboutImage,
+	UserCard,
+} from './styled'
+import { Container, Flexible } from '../../styled'
 import { teamMembers } from '../../constant/teamMembersArray';
-import { useTranslation } from 'react-i18next'; // Import the correct hook
+import { useTranslation } from 'react-i18next';
 
 export const AboutPage = () => {
-	const { t } = useTranslation(); // Corrected to useTranslation
+	const { t } = useTranslation(); 
 
 	return (
 		<AboutContainer>
@@ -27,8 +34,8 @@ export const AboutPage = () => {
 					</AboutText>
 				</AboutSection>
 				<AboutSection>
-					<AboutTitle>{t('ourTeamTitle')}</AboutTitle>
-					<Flexible>
+					<AboutTitle>Our Team</AboutTitle>
+					<Flexible className='users'>
 						{teamMembers.map((member, index) => (
 							index <= 3 ?
 								<UserCard key={index}>

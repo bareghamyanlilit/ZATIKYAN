@@ -7,6 +7,11 @@ export const FAQContainer = styled.div`
   padding: 110px 20px;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+  padding: 80px 0;
+  width: 100%;
+  height: 100vh;
+  background: ${globalColor.white};
 `;
 
 export const FAQTitle = styled.h2`
@@ -26,10 +31,6 @@ export const FAQWrapper = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   margin-top: 80px;
-  @media (max-width: 1240px) {
-    flex-direction: column;
-    align-items: center;
-  }
 `;
 
 export const QuestionWrapper = styled.div`
@@ -40,13 +41,14 @@ export const QuestionWrapper = styled.div`
 
   @media (max-width: 768px) {
     align-items: flex-start;
+    width: 90%;
+  }
 `;
 
 export const QuestionButton = styled.button`
   border: 2px solid ${globalColor.darkGray};
   color: ${globalColor.darkGray};
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.7); 
   padding: 15px;
   text-align: left;
   font-size: 17px;
@@ -56,7 +58,6 @@ export const QuestionButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-
   &:hover, &:focus {
     background-color: ${globalColor.darkGray};
     color: ${globalColor.white};
@@ -65,7 +66,6 @@ export const QuestionButton = styled.button`
   @media (max-width: 768px) {
     width: 100%;
     font-size: 16px;
-    padding: 12px;
   }
 `;
 
@@ -98,17 +98,16 @@ export const AnswerWrapper = styled.div`
     opacity: 0;
     visibility: hidden;
     transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
-    
-    ${({ active }) => active && `
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    `}
+    box-shadow: 5px 2px 9px rgba(0, 0, 0, 0.6);
+
+  ${({ active }) => active && `
+    transform: translateY(0);
+    opacity: 1;
+  `}
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 90%;
+    font-size: 14px;
     padding: 20px;
   }
 `;
-
-
