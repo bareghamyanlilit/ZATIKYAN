@@ -32,23 +32,7 @@ const Column = styled.div`
 	flex-direction: column;
 	gap: 50px;
 `
-const UserCard = styled.div`
-  max-width: 200px;
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 17px;
-  text-align: center;
-  overflow: hidden;
-  padding: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  cursor: pointer;
-  gap: 10px;
-  &:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-`;
+
 
 const Container = styled.div`
 	max-width: 1200px;
@@ -130,4 +114,4 @@ const Checkbox = styled.input`
 	}
 `
 
-export { Flexible, Checkbox, Button, Container, GlobalStyles, Column,UserCard }
+export { Flexible, Checkbox, Button, Container, GlobalStyles, Column }

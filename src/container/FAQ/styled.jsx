@@ -43,7 +43,6 @@ export const QuestionButton = styled.button`
   border: 2px solid ${globalColor.darkGray};
   color: ${globalColor.darkGray};
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.7); 
   padding: 15px;
   text-align: justify;
   font-size: 17px;
@@ -66,35 +65,38 @@ export const QuestionButton = styled.button`
 
 export const AnswerWrapper = styled.div`
   position: relative;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 272px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 20px;
-  }
-`;
-
-export const AnswerText = styled.div`
-  position: absolute;
-  padding: 40px;
-  text-align: justify;
-  background: #fff;
-  border-radius: 25px;
-  font-size: 16px;
-  color: ${globalColor.black};
-  border: 1px solid ${globalColor.black};
-  transform: translateX(100%);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0;
+  width: 40%;
+  height: 300px;
+  
+  @media (max-width: 994px) {
+    width: 70%;
+    justify-content: start;
+    }
+    `;
+    
+    export const AnswerText = styled.div`
+    position: absolute;
+    padding: 30px;
+    text-align: justify;
+    background: #fff;
+    border-radius: 25px;
+    font-size: 16px;
+    color: ${globalColor.black};
+    background-color: rgba(255, 255, 255, 0.7); 
+    transform: translatveY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 5px 2px 9px rgba(0, 0, 0, 0.6);
 
   ${({ active }) => active && `
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
-    visibility: visible;
   `}
 
   @media (max-width: 768px) {
@@ -103,5 +105,3 @@ export const AnswerText = styled.div`
     padding: 20px;
   }
 `;
-
-
