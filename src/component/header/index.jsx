@@ -6,16 +6,16 @@ import { useLocation } from 'react-router-dom'
 import { IoMenuSharp } from 'react-icons/io5'
 import { MenuLang, HeaderResponsive } from '../../component'
 
-export const MyHeader=({})=>{
-	const {t} = useTranslation()
-	const loc =useLocation();
-	const [openMenu,setOpenMenu]=useState(false)
+export const MyHeader = ({ }) => {
+	const { t } = useTranslation()
+	const loc = useLocation();
+	const [openMenu, setOpenMenu] = useState(false)
 	const arr = [
 		{ name: 'Home', path: '/', active: loc.pathname === '/' ? true : false },
-		{ name: 'Contact', path: '/contact', active: loc.pathname === '/contact' ? true : false  },
-		{ name: 'About', path: '/about', active: loc.pathname === '/about' ? true : false  },
-		{ name: 'Our Team', path: '/ourTeam', active: loc.pathname === '/ourTeam' ? true : false  },
-		{ name: 'FAQ', path: '/faq', active: loc.pathname === '/faq' ? true : false  }
+		{ name: 'Contact', path: '/contact', active: loc.pathname === '/contact' ? true : false },
+		{ name: 'About', path: '/about', active: loc.pathname === '/about' ? true : false },
+		{ name: 'Our Team', path: '/ourTeam', active: loc.pathname === '/ourTeam' ? true : false },
+		{ name: 'FAQ', path: '/faq', active: loc.pathname === '/faq' ? true : false }
 	]
 	const [items, setItems] = useState(arr)
 	useEffect(() => {
@@ -27,7 +27,7 @@ export const MyHeader=({})=>{
 			<Header>
 				<LeftHeader>
 					<HeaderLogo src={logo} />
-					<ShopName to={'/'}>ZATIKYAN</ShopName>
+					<ShopName to={'/'}>{t("ZATIKYAN")}</ShopName>
 				</LeftHeader>
 
 				<RightHeader>

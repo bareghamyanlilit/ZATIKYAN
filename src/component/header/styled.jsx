@@ -59,20 +59,35 @@ export const MenueLink = styled(Link)`
 	text-decoration: none;
 	height: 80px;
 	padding: 0 15px;
+    position: relative;
 	width: max-content;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 20px;
-	background-color: ${({ $active }) =>
+	background: ${({ $active }) =>
 		$active ? `${globalColor.darkGray}` : 'none'};
-	&:hover {
-		background-color: ${globalColor.darkGray};
+	 &::after {      
+	  content: "";
+      position: absolute;
+	  bottom: 0;
+      left: 0;
+	  width: 100%;
+      height: 2px;
+	  background: ${globalColor.darkGray};
+      transform: scaleX(0);
+	  transform-origin: bottom right;
+      transition: transform 0.3s ease;
+	}
+    &:hover::after { 
+	  transform: scaleX(1);
+      transform-origin: bottom left;
 	}
 	@media (max-width: 700px) {
 		display: none;
 	}
 `
+
 export const IconDiv = styled(Link)`
 	color: ${globalColor.txtColor};
 	text-decoration: none;
