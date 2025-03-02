@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { globalColor } from '../../assets/colors/index';
 
 export const FAQContainer = styled.div`
-  overflow: hidden;
-  padding: 80px 0;
+  background: url("https://as1.ftcdn.net/jpg/01/83/59/14/1000_F_183591483_Ej0eDBlcuirwxxzGAmHEhpldzxvptrjx.jpg") no-repeat center center;
+  background-size: cover;
+  padding-top: 155px;
   width: 100%;
   height: 100vh;
-  background: ${globalColor.white};
 `;
 
 export const FAQTitle = styled.h2`
@@ -21,14 +21,11 @@ export const FAQTitle = styled.h2`
 
 export const FAQWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 20px;
-  @media (max-width: 1240px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  gap: 20px;
+  margin-top: 80px;
 `;
 
 export const QuestionWrapper = styled.div`
@@ -38,7 +35,7 @@ export const QuestionWrapper = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    width: 90%;
+    align-items: flex-start;
   }
 `;
 
@@ -46,6 +43,7 @@ export const QuestionButton = styled.button`
   border: 2px solid ${globalColor.darkGray};
   color: ${globalColor.darkGray};
   width: 500px;
+  background-color: rgba(255, 255, 255, 0.7); 
   padding: 15px;
   text-align: justify;
   font-size: 17px;
@@ -55,53 +53,54 @@ export const QuestionButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  &:hover {
+  &:hover, &:focus {
     background-color: ${globalColor.darkGray};
     color: ${globalColor.white};
   }
 
   @media (max-width: 768px) {
     width: 100%;
-    font-size: 15px;
-    padding: 12px;
+    font-size: 16px;
   }
 `;
 
 export const AnswerWrapper = styled.div`
   position: relative;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 272px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    padding: 20px;
-  }
-`;
-
-export const AnswerText = styled.div`
-  position: absolute;
-  padding: 40px;
-  text-align: justify;
-  background: #fff;
-  border-radius: 25px;
-  font-size: 16px;
-  color: ${globalColor.black};
-  border: 1px solid ${globalColor.black};
-  transform: translateX(100%);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  opacity: 0;
+  width: 40%;
+  height: 300px;
+  
+  @media (max-width: 994px) {
+    width: 70%;
+    justify-content: start;
+    }
+    `;
+    
+    export const AnswerText = styled.div`
+    position: absolute;
+    padding: 30px;
+    text-align: justify;
+    background: #fff;
+    border-radius: 25px;
+    font-size: 16px;
+    color: ${globalColor.black};
+    background-color: rgba(255, 255, 255, 0.7); 
+    transform: translatveY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    box-shadow: 5px 2px 9px rgba(0, 0, 0, 0.6);
 
   ${({ active }) => active && `
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
+    visibility: visible;
   `}
 
-  @media (max-width: 768px) {
-    width: 90%;
-    font-size: 14px;
-    padding: 20px;
-  }
 `;
+
+
