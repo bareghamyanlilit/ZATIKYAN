@@ -1,6 +1,13 @@
 import React from 'react';
-import { AboutContainer, AboutSection, AboutTitle, AboutText, AboutImage } from './styled';
-import { Container, Flexible, UserCard } from '../../styled'
+import {
+	AboutContainer,
+	AboutSection,
+	AboutTitle,
+	AboutText,
+	AboutImage,
+	UserCard,
+} from './styled'
+import { Container, Flexible } from '../../styled'
 import { teamMembers } from '../../constant/teamMembersArray';
 export const AboutPage = () => {
 	return (
@@ -26,7 +33,7 @@ export const AboutPage = () => {
 				</AboutSection>
 				<AboutSection>
 					<AboutTitle>Our Team</AboutTitle>
-					<Flexible>
+					<Flexible className='users'>
 						{teamMembers.map((member, index) => (
 							index <= 3 ? 
 							<UserCard key={index}>
