@@ -7,7 +7,6 @@ export const FAQContainer = styled.div`
   padding: 110px 20px;
   width: 100%;
   height: 100vh;
-  margin: 62px 0;
 `;
 
 export const FAQTitle = styled.h2`
@@ -26,7 +25,11 @@ export const FAQWrapper = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 48px;
+  margin-top: 80px;
+  @media (max-width: 1240px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const QuestionWrapper = styled.div`
@@ -35,6 +38,8 @@ export const QuestionWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  @media (max-width: 768px) {
+    align-items: flex-start;
 `;
 
 export const QuestionButton = styled.button`
@@ -51,6 +56,7 @@ export const QuestionButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
+
   &:hover, &:focus {
     background-color: ${globalColor.darkGray};
     color: ${globalColor.white};
@@ -59,6 +65,7 @@ export const QuestionButton = styled.button`
   @media (max-width: 768px) {
     width: 100%;
     font-size: 16px;
+    padding: 12px;
   }
 `;
 
@@ -98,6 +105,10 @@ export const AnswerWrapper = styled.div`
       visibility: visible;
     `}
 
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+  }
 `;
 
 
