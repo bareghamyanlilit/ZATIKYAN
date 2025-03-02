@@ -3,6 +3,7 @@ import { faqData } from "../../constant/faqArray";
 import { FAQContainer, FAQTitle, FAQWrapper, QuestionWrapper, QuestionButton, AnswerWrapper, AnswerText } from './styled';
 import { Container } from '../../styled';
 import { useTranslation } from 'react-i18next';
+import { globalColor } from '../../assets/colors';
 
 export const FAQPage = () => {
     const { t } = useTranslation();
@@ -18,11 +19,21 @@ export const FAQPage = () => {
                 <FAQTitle>{t('faqTitle')}</FAQTitle>
                 <FAQWrapper>
                     <QuestionWrapper>
-                        {faqData.map((faq, index) => (
-                            <QuestionButton key={index} onClick={() => toggleAnswer(index)}>
-                                {t(faq.question)}
-                            </QuestionButton>
-                        ))}
+                        {faqData.map((faq, index) => {
+                            const isActive = activeQuestion === index;
+                            return (
+                                <QuestionButton 
+                                    key={index} 
+                                    onClick={() => toggleAnswer(index)}
+                                    style={{ 
+                                        backgroundColor: isActive ? `${globalColor.darkGray}` : 'transparent', 
+                                        color: isActive ? 'white' : 'black' 
+                                    }}
+                                >
+                                    {t(faq.question)}
+                                </QuestionButton>
+                            );
+                        })}
                     </QuestionWrapper>
 
                     <AnswerWrapper>

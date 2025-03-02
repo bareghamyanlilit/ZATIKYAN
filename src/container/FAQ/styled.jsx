@@ -5,13 +5,10 @@ export const FAQContainer = styled.div`
   background: url("https://as1.ftcdn.net/jpg/01/83/59/14/1000_F_183591483_Ej0eDBlcuirwxxzGAmHEhpldzxvptrjx.jpg") no-repeat center center;
   background-size: cover;
   padding: 110px 20px;
-  width: 100%;
-  height: 100vh;
   overflow: hidden;
-  padding: 80px 0;
   width: 100%;
   height: 100vh;
-  background: ${globalColor.white};
+  margin: 80px 0;
 `;
 
 export const FAQTitle = styled.h2`
@@ -84,23 +81,23 @@ export const AnswerWrapper = styled.div`
     justify-content: start;
     }
 `;
-    
-    export const AnswerText = styled.div`
+
+export const AnswerText = styled.div`
     position: absolute;
     padding: 30px;
     text-align: justify;
-    background: #fff;
     border-radius: 25px;
     font-size: 16px;
     color: ${globalColor.black};
     background: rgba(255, 255, 255, 0.7); 
-    transform: translatveY(-20px);
+    transform: translateY(-20px);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
     box-shadow: 5px 2px 9px rgba(0, 0, 0, 0.6);
 
   ${({ active }) => active && `
+    visibility: visible;
     transform: translateY(0);
     opacity: 1;
   `}
