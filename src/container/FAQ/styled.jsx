@@ -49,7 +49,6 @@ export const QuestionButton = styled.button`
   border: 2px solid ${globalColor.darkGray};
   color: ${globalColor.darkGray};
   width: 500px;
-  background-color: rgba(255, 255, 255, 0.7); 
   padding: 15px;
   text-align: justify;
   font-size: 17px;
@@ -104,9 +103,11 @@ export const AnswerWrapper = styled.div`
   ${({ active }) => active && `
     transform: translateY(0);
     opacity: 1;
-    visibility: visible;
   `}
 
+  @media (max-width: 768px) {
+    width: 90%;
+    font-size: 14px;
+    padding: 20px;
+  }
 `;
-
-
